@@ -1,0 +1,32 @@
+﻿{
+  "Routes": [
+    {
+      "UpstreamHttpMethod": ["Post"],
+      "UpstreamPathTemplate": "/v1/user/register",
+      "DownstreamPathTemplate": "/v1/api/register",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [{
+        "Host": "localhost", "Port": 5238
+      }],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      }
+    },
+    {
+      "UpstreamHttpMethod": ["Post"],
+      "UpstreamPathTemplate": "/v1/api/user/create",
+      "DownstreamPathTemplate": "/v1/api/create",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [{
+        "Host": "localhost", "Port": 5238
+      }]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5184"
+  }
+}

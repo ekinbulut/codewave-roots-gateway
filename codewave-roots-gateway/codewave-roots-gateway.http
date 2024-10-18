@@ -1,0 +1,16 @@
+@codewave_roots_gateway_HostAddress = http://localhost:5184
+@token = ""
+
+POST {{codewave_roots_gateway_HostAddress}}/v1/user/register
+Content-Type: application/json
+
+{
+  "username":"ekinbuluttest2",
+  "email":"ekinbulut@testa.com",
+  "password":"e@st@nbuL8d5!",
+  "firstName":"Ekin",
+  "lastName":"Bulut",
+  "location":"Istanbul"
+}
+
+###
