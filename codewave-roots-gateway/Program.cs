@@ -1,5 +1,8 @@
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Roots.Framework.Configuration;
 
 namespace codewave_roots_gateway;
 
@@ -19,12 +22,17 @@ public class Program
                     .AddJsonFile("ocelot.json")
                     .AddEnvironmentVariables();
             })
-            .ConfigureServices(s => {
-                s.AddOcelot();
+            .ConfigureServices((hostingContext, services) =>
+            {
+                services.AddRootsJWT(hostingContext.Configuration);
+                services.AddAuthorization();
+                services.AddOcelot();
             })
             .ConfigureLogging((hostingContext, logging) =>
             {
-                //add your logging
+                logging.ClearProviders();
+                logging.SetMinimumLevel(LogLevel.Debug);
+                logging.AddConsole();
             })
             .UseIISIntegration()
             .Configure(app =>

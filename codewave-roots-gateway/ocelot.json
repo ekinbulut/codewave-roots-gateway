@@ -1,29 +1,57 @@
 ﻿{
   "Routes": [
     {
-      "UpstreamHttpMethod": ["Post"],
+      "UpstreamHttpMethod": [
+        "Post"
+      ],
       "UpstreamPathTemplate": "/v1/user/register",
       "DownstreamPathTemplate": "/v1/api/register",
       "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [{
-        "Host": "localhost", "Port": 5238
-      }],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5238
+        }
+      ],
       "RateLimitOptions": {
         "ClientWhitelist": [],
         "EnableRateLimiting": true,
         "Period": "1s",
         "PeriodTimespan": 1,
         "Limit": 1
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
       }
     },
     {
-      "UpstreamHttpMethod": ["Post"],
+      "UpstreamHttpMethod": [
+        "Post"
+      ],
       "UpstreamPathTemplate": "/v1/api/user/create",
       "DownstreamPathTemplate": "/v1/api/create",
       "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [{
-        "Host": "localhost", "Port": 5238
-      }]
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5238
+        }
+      ]
+    },
+    {
+      "UpstreamHttpMethod": [
+        "Post"
+      ],
+      "UpstreamPathTemplate": "/v1/api/user/login",
+      "DownstreamPathTemplate": "/v1/api/token",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5238
+        }
+      ]
     }
   ],
   "GlobalConfiguration": {
