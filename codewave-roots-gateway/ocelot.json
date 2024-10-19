@@ -19,23 +19,23 @@
         "Period": "1s",
         "PeriodTimespan": 1,
         "Limit": 1
-      },
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
-        "AllowedScopes": []
       }
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "Bearer",
+//        "AllowedScopes": []
+//      }
     },
     {
       "UpstreamHttpMethod": [
         "Post"
       ],
-      "UpstreamPathTemplate": "/v1/api/user/create",
+      "UpstreamPathTemplate": "/v1/user/create",
       "DownstreamPathTemplate": "/v1/api/create",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5238
+          "Port": 5209
         }
       ]
     },
