@@ -26,6 +26,7 @@ public class Program
             {
                 services.AddRootsJWT(hostingContext.Configuration);
                 services.AddAuthorization();
+                services.AddAuthentication();
                 services.AddOcelot();
             })
             .ConfigureLogging((hostingContext, logging) =>
@@ -37,6 +38,9 @@ public class Program
             .UseIISIntegration()
             .Configure(app =>
             {
+                app.UseAuthentication();
+                app.UseAuthorization();
+
                 app.UseOcelot().Wait();
             })
             .Build()
